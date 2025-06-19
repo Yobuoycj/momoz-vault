@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momoz Oil Perfume Vault | Luxury Fragrances</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --light-gold: #F5E7A1;
+            --dark-gold: #B8860B;
+            --charcoal: #1A1A1A;
+            --white: #FFFFFF;
+            --kenya: #006600;
+            --uganda: #FFCC00;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            display: inline-block;
+            padding: 0 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--dark-gold);
+            z-index: 1;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--black);
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            border-bottom: 1px solid var(--dark-gold);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            line-height: 1.2;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
+            color: var(--light-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 5px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after, nav a.active:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gold);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 0.8rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1592945403247-baba1c5d26c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--dark-gold);
+        }
+
+        .hero-content {
+            max-width: 650px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: var(--light-gold);
+            font-style: italic;
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+            background: var(--charcoal);
+            border-bottom: 1px solid var(--dark-gold);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--light-gold);
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid var(--dark-gold);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .origin-flag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .origin-kenya {
+            background: var(--kenya);
+        }
+
+        .origin-uganda {
+            background: var(--uganda);
+            color: #000;
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+
+        .product-category {
+            color: var(--light-gold);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: block;
+            font-style: italic;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--light-gold);
+            border: 1px solid var(--dark-gold);
+        }
+
+        .price-ugx {
+            background: rgba(26, 26, 26, 0.8);
+        }
+
+        .price-ksh {
+            background: rgba(26, 26, 26, 0.8);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            background: var(--gold);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            color: var(--black);
+            font-size: 1rem;
+            max-width: 180px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--dark-gold);
+            color: var(--white);
+        }
+
+        .wishlist {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .wishlist:hover {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        /* Featured Products */
+        .featured-section {
+            padding: 80px 0;
+            background: var(--black);
+            border-bottom: 1px solid var(--dark-gold);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .featured-card {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--dark-gold);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .featured-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .featured-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .featured-card p {
+            color: var(--light-gold);
+            font-size: 1.1rem;
+        }
+
+        /* Payment Options */
+        .payment-section {
+            padding: 80px 0;
+            background: var(--charcoal);
+            border-bottom: 1px solid var(--dark-gold);
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .payment-method {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--dark-gold);
+        }
+
+        .payment-method:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .payment-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .payment-method h3 {
+            font-size: 1.3rem;
+            color: var(--light-gold);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-bottom: 1px solid var(--dark-gold);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .contact-container p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--light-gold);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            background: rgba(26, 26, 26, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--dark-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--light-gold);
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--light-gold);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--dark-gold);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            color: var(--gold);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 1px solid var(--dark-gold);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--light-gold);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            font-size: 1.1rem;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--dark-gold);
+            opacity: 0.7;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 3rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--black);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                border-top: 1px solid var(--dark-gold);
+                border-bottom: 1px solid var(--dark-gold);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 15px auto;
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .contact-item {
+                padding: 20px;
+            }
+            
+            .payment-method {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-wine-bottle"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>MOMOZ</h1>
+                    <p>Oil Perfume Vault</p>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Packages</a></li>
+                    <li><a href="#payments">Payments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/my-orders">My Orders</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="tagline">Luxury Fragrances at Affordable Prices</div>
+            <h2>Experience the Essence of Elegance</h2>
+            <p>Smell like a million bucks without a price tag</p>
+            <a href="#products" class="btn">Shop Now</a>
+            <a href="#contact" class="btn btn-outline">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Fragrance Collection</h2>
+            </div>
+            
+            <div class="categories">
+                <button class="category-btn active">All Products</button>
+                <button class="category-btn">Kenyan Origin</button>
+                <button class="category-btn">Ugandan Origin</button>
+                <button class="category-btn">Best Sellers</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Kenyan Products -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1592945403247-baba1c5d26c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Lavender Dream Perfume">
+                        <div class="origin-flag origin-kenya">KEN</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Nairobi Nights</h3>
+                        <span class="product-category">Oil Perfume</span>
+                        <div class="price-container">
+                            <div class="price-tag price-ugx">UGX 120,000</div>
+                            <div class="price-tag price-ksh">KES 3,500</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <div class="wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595425977377-6aaf05c4457b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Ocean Breeze Perfume">
+                        <div class="origin-flag origin-kenya">KEN</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Masai Mara</h3>
+                        <span class="product-category">Body Spray</span>
+                        <div class="price-container">
+                            <div class="price-tag price-ugx">UGX 85,000</div>
+                            <div class="price-tag price-ksh">KES 2,500</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <div class="wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ugandan Products -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1590732870488-8a3b0a0a3a0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Velvet Rose Perfume">
+                        <div class="origin-flag origin-uganda">UGA</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Kampala Gold</h3>
+                        <span class="product-category">Perfume</span>
+                        <div class="price-container">
+                            <div class="price-tag price-ugx">UGX 150,000</div>
+                            <div class="price-tag price-ksh">KES 4,400</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <div class="wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595425977228-3a6b3b0b8b0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Sandalwood Mystique">
+                        <div class="origin-flag origin-uganda">UGA</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Nile Essence</h3>
+                        <span class="product-category">Fragrance Oil</span>
+                        <div class="price-container">
+                            <div class="price-tag price-ugx">UGX 95,000</div>
+                            <div class="price-tag price-ksh">KES 2,800</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <div class="wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="features" class="featured-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Packages Include</h2>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Perfumes</h3>
+                    <p>Exquisite fragrances crafted with premium ingredients for long-lasting scent</p>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Oil Perfumes</h3>
+                    <p>Concentrated fragrance oils that provide an intense, long-lasting scent experience</p>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Body Sprays</h3>
+                    <p>Light and refreshing scents perfect for everyday use and on-the-go freshness</p>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>Fragrance Oil</h3>
+                    <p>Versatile oils for personal use, different uses, or creating custom scent blends</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Options -->
+    <section id="payments" class="payment-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Secure Payment Options</h2>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <h3>Credit Cards</h3>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Money</h3>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <h3>PayPal</h3>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Cash on Delivery</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <h2>Book Now</h2>
+            <p>Place your order today and experience luxury fragrances at affordable prices</p>
+            <a href="tel:+256776623711" class="btn">Call Now</a>
+            <a href="mailto:morynzeal@gmail.com" class="btn btn-outline">Email Us</a>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <a href="tel:+256776623711">+256 776 623 711</a>
+                    <a href="tel:+256704443171">+256 704 443 171</a>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <a href="mailto:morynzeal@gmail.com">morynzeal@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Momoz Oil Perfume Vault</h3>
+                    <p>Your destination for premium, affordable fragrances for both men and women. Experience luxury with every scent.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#features">Packages</a></li>
+                        <li><a href="#payments">Payments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Returns Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: none; background: rgba(26,26,26,0.5); color: var(--light-gold);">
+                        <button type="submit" class="btn" style="width: 100%; background: var(--gold); border: none; color: var(--black); padding: 12px; border-radius: 5px; font-weight: 600; cursor: pointer;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Momoz Oil Perfume Vault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const menu = document.getElementById('menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            menu.classList.toggle('show');
+        });
+        
+        // Category Buttons
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter products based on category
+                const category = this.textContent;
+                const products = document.querySelectorAll('.product-card');
+                
+                products.forEach(product => {
+                    if (category === 'All Products') {
+                        product.style.display = 'block';
+                    } else if (category === 'Kenyan Origin') {
+                        if (product.querySelector('.origin-kenya')) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    } else if (category === 'Ugandan Origin') {
+                        if (product.querySelector('.origin-uganda')) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    } else {
+                        // For Best Sellers, we can mark some products as best sellers
+                        // This is just a placeholder for actual implementation
+                        product.style.display = 'block';
+                    }
+                });
+            });
+        });
+        
+        // Add to Cart Functionality
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 0;
+        
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                count++;
+                cartCount.textContent = count;
+                
+                // Show notification
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('.product-title').textContent;
+                
+                showNotification(`${productName} added to cart!`);
+            });
+        });
+        
+        // Wishlist Functionality
+        const wishlistBtns = document.querySelectorAll('.wishlist');
+        wishlistBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const heartIcon = this.querySelector('i');
+                if (heartIcon.classList.contains('far')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                    this.style.backgroundColor = 'var(--gold)';
+                    this.style.color = 'var(--black)';
+                    
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    showNotification(`${productName} added to wishlist!`);
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.add('far');
+                    this.style.backgroundColor = '';
+                    this.style.color = '';
+                }
+            });
+        });
+        
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                showNotification(`Thank you for subscribing with ${email}!`);
+                this.reset();
+            });
+        }
+        
+        // Show notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.position = 'fixed';
+            notification.style.bottom = '30px';
+            notification.style.right = '30px';
+            notification.style.backgroundColor = 'var(--gold)';
+            notification.style.color = 'var(--black)';
+            notification.style.padding = '15px 25px';
+            notification.style.borderRadius = '8px';
+            notification.style.zIndex = '1000';
+            notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            notification.style.animation = 'fadeIn 0.5s';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.5s';
+                setTimeout(() => {
+                    notification.remove();
+                }, 500);
+            }, 3000);
+        }
+        
+        // Add animation styles dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <!-- React Entry Script (Only if using Vite/React SPA setup) -->
+<script type="module" src="/src/main.jsx"></script>
+
+<!-- EmailJS Integration -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with real EmailJS user ID
+  })();
+</script>
+
+<!-- Optional: Clear cart after success if redirected to checkout/success -->
+<script>
+  const isSuccessPage = window.location.pathname.includes('/checkout/success');
+  if (isSuccessPage) {
+    localStorage.removeItem('momoz_cart'); // Clear cart
+  }
+</script>
+</body>
+</html>
