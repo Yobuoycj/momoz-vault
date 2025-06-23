@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { supabase } from '../supabase/client';
+import { supabase } from '../supabase/supabase';
 
 const PaymentSuccess = () => {
   const location = useLocation();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../supabase/client';
+import { supabase } from '../../supabase/supabase';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
@@ -16,8 +16,8 @@ const AdminLogin = () => {
     
     try {
       const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password
+        email: email,
+        password: password,
       });
       
       if (error) throw error;

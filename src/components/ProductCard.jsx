@@ -1,46 +1,52 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useCurrency } from '../context/CurrencyContext';
 
-const ProductCard = ({ product }) => {
+function ProductCard({ product }) {
   const { addToCart } = useCart();
+  const { currency } = useCurrency();
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();
-    addToCart(product);
+  // Get price based on selected currency
+  const getPrice = () => {
+    return currency === 'UGX' 
+      ? { price: product.price_ugx, symbol: 'UGX' }
+      : { price: product.price_kes, symbol: 'KES' };
   };
 
+  const { price, symbol } = getPrice();
+
   return (
-    <Link to={`/product/${product.id}`} className="block group">
-      <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg border border-gray-800 transition-transform group-hover:-translate-y-2">
-        <div className="h-64 overflow-hidden">
-          <img 
-            src={product.image_url} 
-            alt={product.name} 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-          />
-        </div>
+    <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+      <Link to={`/product/${product.id}`}>
+        <img 
+          src={product.image_url} 
+          alt={product.title}
+          className="w-full h-48 object-cover"
+        />
+      </Link>
+      
+      <div className="p-4">
+        <Link to={`/product/${product.id}`}>
+          <h3 className="text-white font-bold text-lg mb-1">{product.title}</h3>
+          <p className="text-gray-400 text-sm mb-2">{product.category}</p>
+          <p className="text-gray-500 text-xs">{product.origin}</p>
+        </Link>
         
-        <div className="p-4">
-          <h3 className="text-gold font-bold text-lg mb-1">{product.name}</h3>
-          <p className="text-light-gold text-sm italic mb-3">{product.scent_notes}</p>
-          
-          <div className="flex justify-between items-center">
-            <div>
-              <span className="bg-gray-800 text-light-gold px-3 py-1 rounded-full text-sm">
-                UGX {product.price_ugx.toLocaleString()}
-              </span>
-            </div>
-            <button 
-              onClick={handleAddToCart}
-              className="bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-700"
-            >
-              Add to Cart
-            </button>
-          </div>
+        <div className="flex justify-between items-center mt-3">
+          <span className="text-yellow-400 font-bold">
+            {symbol} {price.toLocaleString()}
+          </span>
+          <button 
+            onClick={() => addToCart(product)}
+            className="bg-yellow-500 text-black px-3 py-1 rounded-md hover:bg-yellow-400 transition"
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
-};
+}
 
 export default ProductCard;

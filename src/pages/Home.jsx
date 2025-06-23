@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { supabase } from '../supabase/client';
+import { supabase } from '../supabase/supabase';
 import ProductCard from '../components/ProductCard';
 
 const Home = () => {
@@ -181,13 +181,13 @@ const Home = () => {
                 rating: 5
               },
               {
-                name: 'James M.',
+                name: 'Joel A.',
                 location: 'Nairobi, Kenya',
                 content: 'As someone who loves luxury fragrances but hates the price tags, Momoz Vault has been a game-changer. The quality is exceptional!',
                 rating: 5
               },
               {
-                name: 'Beatrice N.',
+                name: 'Julie E.',
                 location: 'Kigali, Rwanda',
                 content: 'Fast shipping and excellent customer service. The Kampala Gold scent is my new signature fragrance. Highly recommend!',
                 rating: 4

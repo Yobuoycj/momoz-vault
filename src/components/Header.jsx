@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import CartIcon from './CartIcon';
+import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
+import { useCurrency } from '../context/CurrencyContext';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { cart } = useCart();
   const location = useLocation();
+  const { currency, setCurrency } = useCurrency();
 
   const isActive = (path) => {
     return location.pathname === path ? 'text-gold border-b-2 border-gold' : 'hover:text-gold';
@@ -25,6 +28,21 @@ const Header = () => {
           </div>
         </Link>
 
+        {/* Currency Selector - Desktop */}
+        <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center">
+            <span className="mr-2">Currency:</span>
+            <select 
+              value={currency} 
+              onChange={(e) => setCurrency(e.target.value)}
+              className="bg-gray-800 text-white p-1 rounded"
+            >
+              <option value="UGX">UGX</option>
+              <option value="KES">KES</option>
+            </select>
+          </div>
+        </div>
+
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
@@ -34,7 +52,10 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/products" className={`${isActive('/products')} pb-1 transition`}>
+              <Link 
+                to="/products" 
+                className={`hover:text-yellow-400 ${location.pathname === '/products' ? 'text-yellow-400' : ''}`}
+              >
                 Products
               </Link>
             </li>
@@ -46,6 +67,18 @@ const Header = () => {
             <li>
               <Link to="/contact" className={`${isActive('/contact')} pb-1 transition`}>
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/login" className="flex items-center gap-2 text-gold hover:text-yellow-400 transition" title="Login">
+                <FaSignInAlt size={20} />
+                <span>Login</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/create-account" className="flex items-center gap-2 text-gold hover:text-yellow-400 transition" title="Create Account">
+                <FaUserPlus size={20} />
+                <span>Create Account</span>
               </Link>
             </li>
           </ul>
@@ -116,6 +149,28 @@ const Header = () => {
                     {cart.length}
                   </span>
                 )}
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/login" 
+                className="flex items-center gap-2 py-2 text-gold"
+                onClick={() => setMobileMenuOpen(false)}
+                title="Login"
+              >
+                <FaSignInAlt size={20} />
+                <span>Login</span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/create-account" 
+                className="flex items-center gap-2 py-2 text-gold"
+                onClick={() => setMobileMenuOpen(false)}
+                title="Create Account"
+              >
+                <FaUserPlus size={20} />
+                <span>Create Account</span>
               </Link>
             </li>
           </ul>

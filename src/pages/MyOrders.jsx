@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { supabase } from '../supabase/client';
+import { supabase } from '../supabase/supabase';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);

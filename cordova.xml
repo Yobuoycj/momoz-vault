@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.momoz.vault" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>Momoz Vault</name>
+    <description>Momoz Oil & Perfume Vault</description>
+    <author email="support@momoz.com" href="https://momoz.com">Momoz Team</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="android-minSdkVersion" value="22" />
+    <preference name="android-targetSdkVersion" value="33" />
+</widget>

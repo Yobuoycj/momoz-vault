@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from '../supabase/client';
+import { supabase } from '../supabase/supabase';
 
 const ContactReviews = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });

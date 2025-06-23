@@ -1,7 +1,6 @@
-import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useFlutterwave } from 'flutterwave-react-v3';
-import { supabase } from '../supabase/client';
+import { supabase } from '../supabase/supabase';
 
 const PaymentPage = () => {
   const location = useLocation();

@@ -1,54 +1,74 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const CartContext = createContext();
 
-export function CartProvider({ children }) {
+// Remove the duplicate export - we'll handle exports at the end
+function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem('momoz_cart')) || [];
-    setCart(savedCart);
+    try {
+      const savedCart = localStorage.getItem('momoz_cart');
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      }
+    } catch (error) {
+      console.error('Failed to load cart from localStorage:', error);
+      localStorage.removeItem('momoz_cart');
+    }
   }, []);
 
-  const addToCart = (product) => {
-    const existingItem = cart.find(item => item.id === product.id);
-    
-    if (existingItem) {
-      const updatedCart = cart.map(item => 
-        item.id === product.id 
-          ? {...item, quantity: item.quantity + 1} 
-          : item
-      );
-      setCart(updatedCart);
-      localStorage.setItem('momoz_cart', JSON.stringify(updatedCart));
-    } else {
-      const newCart = [...cart, {...product, quantity: 1}];
-      setCart(newCart);
-      localStorage.setItem('momoz_cart', JSON.stringify(newCart));
+  useEffect(() => {
+    try {
+      localStorage.setItem('momoz_cart', JSON.stringify(cart));
+    } catch (error) {
+      console.error('Failed to save cart to localStorage:', error);
     }
-  };
+  }, [cart]);
 
-  const removeFromCart = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
-    setCart(updatedCart);
-    localStorage.setItem('momoz_cart', JSON.stringify(updatedCart));
-  };
+  const addToCart = useCallback((product) => {
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === product.id);
+      
+      if (existingItem) {
+        return prevCart.map(item => 
+          item.id === product.id 
+            ? {...item, quantity: item.quantity + 1} 
+            : item
+        );
+      } else {
+        return [...prevCart, {...product, quantity: 1}];
+      }
+    });
+  }, []);
 
-  const clearCart = () => {
+  const removeFromCart = useCallback((id) => {
+    setCart(prevCart => prevCart.filter(item => item.id !== id));
+  }, []);
+
+  const clearCart = useCallback(() => {
     setCart([]);
-    localStorage.removeItem('momoz_cart');
-  };
+  }, []);
 
-  const updateQuantity = (id, quantity) => {
-    const updatedCart = cart.map(item => 
-      item.id === id ? {...item, quantity} : item
-    );
-    setCart(updatedCart);
-    localStorage.setItem('momoz_cart', JSON.stringify(updatedCart));
-  };
+  const updateQuantity = useCallback((id, quantity) => {
+    setCart(prevCart => {
+      if (quantity <= 0) {
+        return prevCart.filter(item => item.id !== id);
+      }
+      
+      return prevCart.map(item => 
+        item.id === id ? {...item, quantity} : item
+      );
+    });
+  }, []);
+
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
   const value = {
     cart,
+    cartCount,
+    cartTotal,
     addToCart,
     removeFromCart,
     clearCart,
@@ -58,6 +78,16 @@ export function CartProvider({ children }) {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
-export function useCart() {
-  return useContext(CartContext);
+function useCart() {
+  const context = useContext(CartContext);
+  
+  if (context === undefined) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  
+  return context;
 }
+
+// Only export once at the bottom
+export { CartProvider, useCart };
+export default CartContext;
